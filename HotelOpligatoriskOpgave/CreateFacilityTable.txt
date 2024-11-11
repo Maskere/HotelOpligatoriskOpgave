@@ -1,0 +1,7 @@
+CREATE TABLE Facility(
+    Facility_Id     int         IDENTITY(1,1) PRIMARY KEY,
+    Facility_Name   VARCHAR(30)     NOT NULL,
+    Hotel_No        int             NOT NULL,
+
+    FOREIGN KEY (Hotel_No) REFERENCES Hotel (Hotel_No) ON UPDATE CASCADE
+);
