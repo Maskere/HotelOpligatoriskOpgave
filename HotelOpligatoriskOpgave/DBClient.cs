@@ -3,7 +3,7 @@ using System.Data.SqlClient;
 
 namespace HotelOpligatoriskOpgave{
     public class DBClient{
-        string connectionString = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=OpligatoriskHotelOpgave;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
+        string connectionString = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=HotelObligatoriskOpgave;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
 
         public void Read(){
             string queryString = "select * from Hotel";

@@ -1,0 +1,6 @@
+DROP TABLE [dbo].[Booking]
+DROP TABLE [dbo].[Room]
+DROP TABLE [dbo].[Guest]
+DROP TABLE [dbo].[Facility]
+DROP TABLE [dbo].[FacilityHotel]
+DROP TABLE [dbo].[Hotel]

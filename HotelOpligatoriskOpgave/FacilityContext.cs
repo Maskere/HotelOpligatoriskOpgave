@@ -2,10 +2,10 @@ using System.Data.SqlClient;
 
 namespace HotelOpligatoriskOpgave{
     public class FacilityContext{
-        string connectionString = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=OpligatoriskHotelOpgave;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
+        string connectionString = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=HotelObligatoriskOpgave;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
 
         public void Create(string facilityName, int hotelId){
-            string queryString = $"insert into Facility values ('{facilityName}', '{hotelId}')";
+            string queryString = $"insert into Facility values ('{facilityName}')";
             using(SqlConnection connection = new SqlConnection(connectionString)){
                 SqlCommand create = new SqlCommand(queryString, connection);
                 create.Connection.Open();
