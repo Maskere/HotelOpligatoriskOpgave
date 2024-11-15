@@ -2,8 +2,9 @@ using System.Data.SqlClient;
 
 namespace HotelOpligatoriskOpgave{
     public class FacilityContext{
+        private string connectionString = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=ObligatoriskHotalOpgave;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
 
-        public void Create(string facilityName, int hotelId){
+        public void Create(string facilityName){
             string queryString = $"insert into Facility values ('{facilityName}')";
             using(SqlConnection connection = new SqlConnection(connectionString)){
                 SqlCommand create = new SqlCommand(queryString, connection);
@@ -21,13 +22,12 @@ namespace HotelOpligatoriskOpgave{
                 while(reader.Read()){
                     int id = reader.GetInt32(0);
                     string name = reader.GetString(1);
-                    int hotelId = reader.GetInt32(2);
-                    Console.WriteLine($"Facility {id}: - {name} on hotel: {hotelId}");
+                    Console.WriteLine($"Facility {id}: - {name}");
                 }
             }
         }
-        public void Update(string facilityName, int hotelNo, int facilityId){
-            string queryString = $"update Facility set Facility_Name= '{facilityName}', Hotel_No = '{hotelNo}' where Facility_Id = '{facilityId}'";
+        public void Update(string facilityName, int facilityId){
+            string queryString = $"update Facility set Facility_Name= '{facilityName}' where Facility_Id = '{facilityId}'";
             using(SqlConnection connection = new SqlConnection(connectionString)){
                 SqlCommand update = new SqlCommand(queryString, connection);
                 update.Connection.Open();

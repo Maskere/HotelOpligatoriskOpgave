@@ -4,6 +4,8 @@ using System.Data.SqlClient;
 namespace HotelOpligatoriskOpgave{
     public class DBClient{
 
+        private string connectionString = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=ObligatoriskHotalOpgave;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
+
         public void Read(){
             string queryString = "select * from Hotel";
             using(SqlConnection connection = new SqlConnection(connectionString)){

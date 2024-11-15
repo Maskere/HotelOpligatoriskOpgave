@@ -39,20 +39,20 @@ CREATE TABLE Room(
             FOREIGN KEY(Room_No, Hotel_No) REFERENCES Room(Room_No, Hotel_No)
             );
 
-
-    CREATE TABLE FacilityHotel(
-            Hotel_No        int             NOT NULL PRIMARY KEY,
-            Facility_Id     int             NOT NULL,
-
-            FOREIGN KEY(Hotel_No) REFERENCES Hotel(Hotel_No) ON DELETE CASCADE ON UPDATE CASCADE
-            );
-
     CREATE TABLE Facility(
             Facility_Id     int             IDENTITY(1,1) PRIMARY KEY,
             Facility_Name   VARCHAR(30)     NOT NULL
-
-            FOREIGN KEY(Facility_Id) REFERENCES FacilityHotel(Facility_Id) ON DELETE CASCADE ON UPDATE CASCADE
             );
+
+    CREATE TABLE FacilityHotel(
+            FacilityHotel_No    int         IDENTITY(1,1) PRIMARY KEY,
+            Hotel_No        int             NOT NULL,
+            Facility_Id     int             NOT NULL,
+
+            FOREIGN KEY(Hotel_No) REFERENCES Hotel(Hotel_No) ON DELETE CASCADE ON UPDATE CASCADE,
+            FOREIGN KEY(Facility_Id) REFERENCES Facility(Facility_Id) ON DELETE CASCADE ON UPDATE CASCADE
+            );
+
 
     ALTER TABLE Booking
     ADD CONSTRAINT incorrect_dates
