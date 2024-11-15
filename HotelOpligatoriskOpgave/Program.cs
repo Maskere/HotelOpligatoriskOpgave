@@ -1,9 +1,7 @@
 ﻿namespace HotelOpligatoriskOpgave
 {
-    public class Program
-    {
-        static void Main(string[] args)
-        {
+    public class Program{
+        static void Main(string[] args){
             DBClient dbc = new DBClient();
 
             Console.WriteLine();
@@ -13,7 +11,6 @@
             //fContext.Delete(2);
             //fContext.Update("BowlingHall", 1);
             fContext.Read();
-
         }
     }
 }
